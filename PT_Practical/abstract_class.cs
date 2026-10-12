@@ -24,9 +24,9 @@ namespace PT_Practical
         }
     }
 
-    class Program
+    class abstract_class
     {
-        static void Main()
+        static void abstractMain()
         {
             Dog d = new Dog();
         }

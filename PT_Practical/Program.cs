@@ -4,6 +4,8 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PT_Practical
 {
+
+
     //    abstract
     //   highlight imprtant features
     //   abstract keyword with class and method
@@ -70,14 +72,54 @@ namespace PT_Practical
         public abstract void check();
     }
 
-    // Derived Class
-    class RegularEmployee : Emp
+    // interface 
+    // what a class must do but not how it does
+    // it declares only abstract methods 
+    // all mehtod in interface are
+    // by default public and abstract
+
+    interface ITest
     {
+      // static int temp;
+
+        void Testing();// abstract method
+
+        //void Testing2()
+        //{
+
+        //}
+    }
+
+    interface ICalc
+    {
+        void CalculateSalary();
+
+    }
+
+
+    // Derived Class
+    class RegularEmployee : Emp ,ITest, ICalc
+    {
+       public void Testing() 
+        { 
+        
+        }
+
+        public void CalculateSalary()
+        {
+            GrossSalary = Basic + HRA + DA;
+            NetSalary  = GrossSalary - PF + PT;
+
+        }
+
         private double Basic;
         private double HRA;
         private double DA;
         private double PF;
         private double PT;
+        private double GrossSalary;
+
+        private double NetSalary;
 
         // Constructor
         public RegularEmployee()
