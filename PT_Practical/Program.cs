@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PT_Practical
@@ -181,6 +182,65 @@ namespace PT_Practical
             e2.check();
 
             Console.Read();
+
+            // ArrayList (Non-generic collection class)
+            // Allowed to store any type of value
+            //List (Generic class)
+            // Allowed to store only specific type of value
+            ArrayList obj = new ArrayList();
+            obj.Add("RKU");
+            obj.Add(110);
+            obj.Add(10.5);
+            foreach (object str in obj)
+            {
+                Console.WriteLine(str + " ");
+            }
+
+            List<string> lst = new List<string>();
+            lst.Add("Ahmedabad");
+            lst.Add("Rajkot");
+            lst.Add(152.85);
+            foreach (string str in lst) // Object
+            {
+                Console.WriteLine(str + " ");
+            }
+
+
+            // SortedList:
+            // key-value pair collection
+            // it is sorted by key automatically
+            SortedList S = new SortedList();
+            S.Add("SOECE13052", "Khush");
+            S.Add("SOECE13053", "Viraj");
+            S.Add("SOECE13054", "Meet");
+            for (int i = 0; i < S.Count; i++)
+                Console.WriteLine(S.GetByIndex(i));
+
+
+            // HashTable: (Non-generic & not sorted)
+            // key-value pair collection
+            // it dose not sort value as per the key automatically
+            Hashtable H = new Hashtable();
+            H.Add("SOECE13052", "Khush");
+            H.Add("SOECE13054", 55200);
+            H.Add("SOECE13053", "Viraj");
+            ICollection c = S.Keys;
+            foreach (string str in c)
+                Console.WriteLine(str + " " + H[str]);
+            H.Add("E005",e1);
+            H.Add("E006", e2);
+
+
+
+            // Dictionary: (Generic & not sorted)
+            // key-value pair collection
+            // it dose not sort value as per the key automatically
+            Dictionary<String,RegularEmployee> d = new Dictionary<String, RegularEmployee>();
+            d.Add("E007", e1);
+            d.Add("E008", e2);
+
+
+
         }
     }
 }
